@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+</head>
+<body>
+    <script>
+    //    function Car(name, price) {
+    //        var irum = name;
+    //        var pay = price;
+    //        this.getName = function() {
+    //            return irum;
+    //        }
+    //        this.setName = function(n) {
+    //            irum = n;
+    //        }
+    //    }
+    //    var sonata = new Car('Sonata', 2500);
+    //    console.log(sonata.irum);
+    //    console.log(sonata.getName());
+    //    console.log(sonata.setName('Carnival'));
+    //    console.log(sonata.getName());
+    //    var str = 'Hello';
+    //    var str2 = new String('Hello');
+    //    //new String 없이도 가능
+    //    str.toLowerCase();
+    //    console.log(typeof str);
+    //    console.log(typeof str2);
+        function Outer(greeting) {
+            function Inner(who) {
+                return who + ' '  + greeting;
+            };
+            return Inner;
+        }
+        //Outer에서 Inner라는 함수를 return 했으므로 result도 함수
+        var result = Outer('Good Morning');
+        var aaa = Outer('Good bye');
+        // console.log(typeof result); //function
+        console.log(result('한지민'));
+        console.log(aaa('김철수'));
+    </script>
+</body>
+</html>

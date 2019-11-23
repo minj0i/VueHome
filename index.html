@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello, Vue.js</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <script>
+        //view model의 약자  vm
+        // let vm = new Vue({
+        new Vue({
+            //객체 리터럴을 쓰기 때문에 {}로 감싸줌
+            el : '#app', // 뷰가 관리하는 곳(id="app")
+            data : {
+                message : "Hello, Vue.js~!!!",
+            } 
+        })
+    </script>
+</body>
+</html>
