@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <h1 v-if="!msg">메일 전송 시 반드시 메시지를 넣으셔야 합니다.</h1>
+            <h3 v-else>정상적으로 메일이 발송됐습니다.</h3>
+            <textarea v-model="msg" cols="40" rows="5"></textarea><br/>
+            <button v-show="msg">Please Send message</button>
+            <pre>{{msg}}</pre>
+    </div>
+    <script>
+        new Vue({
+            el : "#app",
+            data : {
+                msg: 'Hello, Vue.js!!'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #list { width:400px; border:1px solid black; border-collapse: collapse;}
+        #list td, #list th {border: 1px solid black; text-align: center;}
+        #list > thead > tr { color: yellow; background-color: purple}
+    </style>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="js/product.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table border="1" cellspacing='0' id="list">
+            <caption>상품 목록</caption>
+            <thead>
+                <tr>
+                    <td>번호</td>
+                    <td>이름</td>
+                    <td>가격</td>
+                    <td>수량</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in items">
+                    <td>{{ index +1  }}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.quantity}}</td>
+                </tr>
+                <tr>
+                    <td colspan="4" height="10" style="background-color: gray;"></td>
+                </tr>
+                <tr v-for="i in items.length">
+                    <td>{{ i }}</td>
+                    <td>{{items[i-1].name}}</td>
+                    <td>{{items[i-1].price}}</td>
+                    <td>{{items[i-1].quantity}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        new Vue({
+            el : "#app",
+            data : {
+                items : items
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="js/product.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ productItems[0].name }} : {{  productItems[0].price }}원
+        <li v-for="item in productItems">{{ item.name }} : {{ item.price }}원</li>
+    </div>
+    <script>
+        let vm = new Vue({
+            el : "#app",
+            data : {
+                productItems : items,
+            },
+        })
+    </script>
+</body>
+</html>

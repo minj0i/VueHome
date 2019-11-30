@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <h1>좋아하시는 계절을 선택해 주세요.</h1>
+            <input type="radio" value="spring" v-model="season">봄
+            <input type="radio" value="summer" v-model="season">여름
+            <input type="radio" value="fall" v-model="season">가을
+            <input type="radio" value="winter" v-model="season">겨울
+            <div>
+                <span v-if="season == 'spring'">개나리, 진달래</span>
+                <span v-else-if="season == 'summer'">장미, 아카시아</span>
+                <span v-else-if="season == 'fall' ">코스모스, 백합</span>
+                <span v-else-if="season == 'winter'">동백, 매화</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let model = {
+            season : '',
+        }
+        new Vue({
+            el : "#app",
+            data : model
+        })
+    </script>
+</body>
+</html>

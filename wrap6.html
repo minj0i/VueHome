@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-bind:title="msg">Click me!!!</button><br/>
+        <img v-bind:src="imagePath">
+    </div>
+    <script>
+        let vm = new Vue({
+            el : "#app",
+            data : {
+                msg: '나를 눌러 주세요',
+                imagePath: 'https://vuejs.org/images/logo.png'
+            }
+        })
+    </script>
+</body>
+</html>

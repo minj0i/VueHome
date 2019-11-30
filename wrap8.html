@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-html을 넣으면 안의 style까지 같이 적용됨 -->
+        <p v-html="msg"></p>
+        <p v-text="msg1"></p>
+    </div>
+    <script>
+        new Vue({
+            el : "#app",
+            data : {
+                msg: "<span style='color:red; font-size:2em; font-weight:900'>Hello, Vue.js!!</span>",
+                msg1: "<span style='color:red; font-size:2em; font-weight:900'>그대로나타남</span>"
+            }
+        })
+    </script>
+</body>
+</html>

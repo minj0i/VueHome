@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="fruit in fruits">{{ fruit }}</li>
+        </ol>
+    </div>
+    <script>
+        // push, pop, unshift(맨 앞에 넣기)
+        let vm = new Vue({
+            el : "#app",
+            data : {
+                fruits : ['Mango', 'Banana', 'Apple', 'Grape']
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if & v-else 연습</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            <span v-if="chooseGender == 'male' || chooseGender == 'female'">
+                <span v-if="chooseGender=='male'">Hello, Mister</span>
+                <span v-else>Hello, Miss</span>
+            </span>
+            <span v-else>So you can't decide, fine!</span>
+            {{name}}
+        </h1>
+        Enter your gender:<br/>
+        <input type="text" v-model="chooseGender"><br/>
+        Enter your name:<br/>
+        <input type="text" v-model="name">
+        <hr/>
+        <h1>
+            <span v-if="picked">
+                <span>Hello, {{ picked }}</span>
+            </span>
+            <span v-else>So you can't decide, fine!</span>
+            </span>
+                {{name}}
+            </h1>
+        Enter your gender:<br/>
+        <input type="radio" name="gender" v-model="picked" value="Mister">male
+        <input type="radio" name="gender" v-model="picked" value="Miss">female
+        <br/>
+        Enter your name:<br/>
+        <input type="text" v-model="name">
+    </div>
+    <script>
+        new Vue({
+            el : "#app",
+            data : {
+                chooseGender: '',
+                name : '',
+                picked: '',
+            },
+        })
+    </script>
+</body>
+</html>

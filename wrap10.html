@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>좋아하는 과일을 모두 골라주세요</div>
+        <input type="checkbox" value="Apple" v-model="fruits">사과,
+        <input type="checkbox" value="Mango" v-model="fruits">망고,
+        <input type="checkbox" value="Banana" v-model="fruits">바나나,
+        <input type="checkbox" value="Grape" v-model="fruits">포도,
+        <input type="checkbox" value="Melon" v-model="fruits">멜론,
+        <input type="text" v-model="fruits">
+    </div>
+    <div id="app2">
+        선택한 과일들 : <span v-text="fruits"></span>
+    </div>
+    <script>
+        let model = {
+            fruits : [],
+        };
+        let vm = new Vue({
+            el : "#app",
+            data : model
+        });
+        let vm2 = new Vue({
+            el: "#app2",
+            data : model
+        })
+    </script>
+</body>
+</html>
