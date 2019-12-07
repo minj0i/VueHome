@@ -9,18 +9,22 @@
 </head>
 <body>
     <div id="app">
-        <button v-on:click="myClick">Click me!</button>
+        <label>여행하고 싶은 도시 : </label>
+        <input type="text" v-model="searchCity">
+        <ul>
+            <li v-for="city in filteredCities">{{ city }}</li>
+        </ul>
     </div>
     <script>
-        new Vue({
+        let vm = new Vue({
             el : "#app",
             data : {
-                msg: 'Hello, vue.js!'
+                searchCity : '',
+                cities : ['Seoul', 'Paris', 'Seattle', 'Chicago', 'New York', 'Rome', 'Prague', 'Venezia', 'Budapest']
             },
-            methods : {
-                myClick: function(event) {
-                    // alert(this.msg);
-                    alert(event.target); //[object HTMLButtonElement]
+            computed : {
+                filteredCities() {
+                    return this.cities.filter(item => item.match(this.searchCity.toUpperCase()))
                 }
             }
         })

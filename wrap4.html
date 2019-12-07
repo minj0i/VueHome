@@ -9,17 +9,24 @@
 </head>
 <body>
     <div id="app">
-        <!-- v-if의 false가 발생하는 경우 아예 hidden, DOM에 수시로 렌더링됨 -->
-        <!-- 따라서 보였다 안보였다 자주 해야 하는 경우에는 show를 쓰는게 나음. 처음은 무겁지만 변화하는 동안은 가벼워짐 -->
-    <p v-if="show"> {{msg }} </p>
+        <!-- 2 단계 -->
+        <child-component v-bind:text="message"></child-component>
     </div>
     <script>
-        let vm = new Vue({
+        // 컴포넌트는  Vue전에 써줘야 함, template은 필수로 있어야 함
+        Vue.component('child-component', {
+            //3단계
+            props : ['text'],
+            template: `
+            <div style="background-color:yellow;">
+                {{ text }}
+            </div>`
+        });
+        new Vue({
             el : "#app",
-            data : {
-                msg: 'Hello, Vue.js!!',
-                show: true,
-            }
+            data :  {
+                message : 'Hello, Vue.js!!' //1단계
+            },
         })
     </script>
 </body>

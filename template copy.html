@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-header></my-header>
+        <my-body></my-body>
+        <my-footer></my-footer>
+    </div>
+    <script>
+        Vue.component('my-header',{
+            template: '<p style="background:yellow">Header</p>'
+        });
+        Vue.component('my-body',{
+            template: '<div style="background:orange">body</div>'
+        });
+        Vue.component('my-footer',{
+            template: '<div style="background:teal">Footer</div>'
+        });
+        new Vue({
+            el : "#app",
+            data : {
+                msg: 'Hello, Vue.js!!'
+            }
+        })
+    </script>
+</body>
+</html>

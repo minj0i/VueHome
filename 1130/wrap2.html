@@ -9,24 +9,18 @@
 </head>
 <body>
     <div id="app">
-        Base 10 : <input type="number" v-model.number  = 'dec'>
-        Base 2 : <input type="number" v-model.number  = 'binary'>
+        <button v-on:click="myClick">Click me!</button>
     </div>
     <script>
         new Vue({
             el : "#app",
             data : {
-                dec : 0,
-                binary : 0,
+                msg: 'Hello, vue.js!'
             },
-            watch : {
-                dec: function(val) {
-                    this.dec = val;
-                    this.binary = parseInt(val.toString(2));
-                },
-                binary: function(val) {
-                    this.binary = val;
-                    this.dec = parseInt(val, 2);
+            methods : {
+                myClick: function(event) {
+                    // alert(this.msg);
+                    alert(event.target); //[object HTMLButtonElement]
                 }
             }
         })

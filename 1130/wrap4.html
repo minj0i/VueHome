@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if의 false가 발생하는 경우 아예 hidden, DOM에 수시로 렌더링됨 -->
+        <!-- 따라서 보였다 안보였다 자주 해야 하는 경우에는 show를 쓰는게 나음. 처음은 무겁지만 변화하는 동안은 가벼워짐 -->
+    <p v-if="show"> {{msg }} </p>
+    </div>
+    <script>
+        let vm = new Vue({
+            el : "#app",
+            data : {
+                msg: 'Hello, Vue.js!!',
+                show: true,
+            }
+        })
+    </script>
+</body>
+</html>

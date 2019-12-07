@@ -9,16 +9,37 @@
 </head>
 <body>
     <div id="app">
-        <ol>
-            <li v-for="fruit in fruits">{{ fruit }}</li>
-        </ol>
+        <div>
+            <h3>{{productName}}</h3>
+            <h4>공급대가 : {{ price | | numberWithDelimeter}}</h4>
+            <input type="number" v-model="price">
+            <h4>공급가액: {{ supplyAmount.toFixed() | numberWithDelimeter}}</h4>
+            <h4>부가가치세: {{ valueAddedTax.toFixed() | numberWithDelimeter }}</h4>
+        </div>
     </div>
     <script>
-        // push, pop, unshift(맨 앞에 넣기)
-        let vm = new Vue({
+        new Vue({
             el : "#app",
             data : {
-                fruits : ['Mango', 'Banana', 'Apple', 'Grape']
+                name : 'MacBook pro Notebook',
+                price : 3600000
+            },
+            filters : {
+                numberWithDelimeter: function(value){
+                    if(!value) return '0';
+                    return value.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+                }
+            },
+            computed : {
+                productName : function() {
+                    return this.name.toUpperCase()
+                },
+                supplyAmount() {
+                    return (this.price/11) * 10
+                },
+                valueAddedTax() {
+                    return (this.price /11)
+                }
             }
         })
     </script>
