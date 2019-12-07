@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 2단계 : prop으로 넘길 이름과 데이터를 지정한다. -->
+        <app-component :propsdata="msg"></app-component> 
+    </div>
+    <script>
+        let appComponent = {
+            props: ['propsdata'],
+            //3단계 : template안에서 쓴다.
+            template : '<div> Message : {{ propsdata }} </div>',
+        };
+        new Vue({
+            el : "#app",
+            data : {
+                msg: '하위에게 전달할 메세지' // 1단계
+            },
+            components : {
+                'app-component' : appComponent,
+            }
+        })
+    </script>
+</body>
+</html>
