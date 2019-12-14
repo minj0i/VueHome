@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <user-login></user-login>
+    </div>
+    <script id="mylogin" type="text/x-template">
+        <div>
+            <div>
+                <input type="text" placeholder="User Id" v-model="userid">
+            </div>
+            <div>
+                <input type="password" placeholder="User Password" v-model="userpwd">
+            </div>
+            <div>
+                <button @click="login">로그인</button>
+            </div>
+        </div>
+    </script>
+    <script>
+        Vue.component('user-login', {
+            template: '#mylogin',
+            data() {
+                return {
+                    userid :"",
+                    userpwd : "",
+                }
+            },
+            methods : {
+                login() {
+                    auth.login(this.userid, this.userpwd);
+                }
+            },
+        });
+        let auth = {
+            login(id, pwd) {
+                console.log('userid = ' + id);
+                console.log('userpwd ='+ pwd);
+            }
+        }
+        new Vue({
+            el : "#app",
+            data : {
+                msg: 'Hello, Vue.js!!'
+            }
+        })
+    </script>
+</body>
+</html>

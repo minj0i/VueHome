@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 하나는 전역, 하나는 지역 컴포넌트 -->
+        <app-header></app-header>
+        <child-component></child-component>
+    </div>
+    <div id="app1">
+            <app-header></app-header>
+            <child-component></child-component>
+        </div>
+    <script>
+        // Global Component(전역) : Component를 등록할 때마다, 자동 등록
+        // Local Component(지역) : Vue Instance마다 별도로 등록해야됨, 수동등록
+        // Global Component
+        Vue.component('app-header', {
+            template : '<h1>Global Component</h1>'
+        })
+        new Vue({
+            el : "#app",
+            components : {
+                // 'child-component, ChildComponent  둘 다 인식함'
+                'child-component' : {
+                    template : '<div>Local Component</div>'
+                }
+            }
+        })
+        //만들어질때마다 전역컴포넌트는 계속 만들어지지만 지역 컴포넌트는 한 군데에서만 만들어짐
+        new Vue({
+            el: "#app1",
+        })
+    </script>
+</body>
+</html>
