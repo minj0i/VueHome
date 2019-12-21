@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+    /* .box {
+        margin : 10px;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity .8s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+        opacity : 0
+    } */
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: opacity 1s;
+    }
+
+    .v-leave-active {
+        position : absolute
+    }
+
+    .v-enter, .v-leave-to {
+        opacity: 0;
+    }
+
+</style>
+<body>
+    <div id="app">
+        <!-- <div class="box">
+            <button v-on:click="changeVisible">보여주기 토글</button>
+        </div>
+        <div class="box">
+            <transition name="fade">
+                <img src="./city1.jpg" v-if="visible"/>
+            </transition>
+        </div> -->
+        <button @click="count++">변경하기</button>
+        <transition>
+            <div :key="count">{{count}}</div>
+        </transition>
+    </div>
+    <script>
+        let v = new Vue({
+            el : "#app",
+            // data () {
+            //     return {
+            //         visible : true,
+            //     }
+            // },
+            data : {
+                count : 0
+            },
+            methods : {
+                changeVisible() {
+                    this.visible = !this.visible;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

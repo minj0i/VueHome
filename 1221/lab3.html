@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="http://unpkg.com/vue-router@3.1.3/dist/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/top">최상위 페이지</router-link>
+        <router-link to="/users">사용자 목록 페이지</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+        let router = new VueRouter({
+            mode: 'history',
+            routes : [
+                { path: '/top', component : {
+                    template : '<div style="color:red">최상위페이지</div>'
+                }},
+                { path: '/users', component : {
+                    template : '<div style="color:blue">사용자 목록 페이지</div>'
+                }}
+            ]
+        })
+        new Vue({
+            el : "#app",
+            router : router
+        })
+    </script>
+</body>
+</html>
